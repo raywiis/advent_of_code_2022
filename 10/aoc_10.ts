@@ -14,8 +14,8 @@ function runVM(instructions: string[]) {
       if ((cycle - 20) % 40 === 0) {
         signalStr.push(x * cycle);
       }
-      const row = Math.floor(cycle / 40)
-      const pixel = cycle % 40 - 1;
+      const row = Math.floor((cycle - 1) / 40) 
+      const pixel = (cycle - 1) % 40;
       const inSignal = pixel <= x + 1 && pixel >= x- 1;
       crt[row][pixel] = inSignal ? '#' : '.';
     }
